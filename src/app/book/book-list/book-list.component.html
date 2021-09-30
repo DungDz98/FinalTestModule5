@@ -1,0 +1,22 @@
+<h1 class="text-center mb-5">Danh sách các cuốn sách</h1>
+<p style="display: inline; font-weight: bolder">Có {{books.length}} cuốn sách</p>
+<a [routerLink]="['/books/create']" class="btn btn-secondary" style="float: right;">Thêm sách mới</a>
+<table class="table" >
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Tên sách</th>
+    <th scope="col">Tác giả</th>
+    <th scope="col" colspan="2"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let b of books, index as i">
+    <th scope="row">{{i + 1}}</th>
+    <td><a [routerLink]="['/books/detail', b.id]">{{b.title}}</a></td>
+    <td>{{b.author}}</td>
+    <td><a [routerLink]="['/books/delete', b.id]" class="btn btn-danger">Xoá</a></td>
+    <td><a [routerLink]="['/books/update', b.id]" class="btn btn-warning">Sửa</a></td>
+  </tr>
+  </tbody>
+</table>
